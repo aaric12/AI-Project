@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #2e3d49;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Crop Yield Prediction</h2>
+
+        <form id="cropPredictionForm">
+            <label for="state">Select State:</label>
+            <select id="state" name="state">
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+            </select>
+
+            <label for="district">Select District:</label>
+            <select id="district" name="district">
+                <option value="Pune">Pune</option>
+                <option value="Agra">Agra</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+            </select>
+
+            <label for="season">Select Season:</label>
+            <select id="season" name="season">
+                <option value="Rabi">Rabi</option>
+                <option value="Kharif">Kharif</option>
+                <option value="Zaid">Zaid</option>
+            </select>
+
+            <label for="crop">Select Crop:</label>
+            <select id="crop" name="crop">
+                <option value="Rice">Rice</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Maize">Maize</option>
+            </select>
+
+            <label for="custom-input">Custom Input (Optional):</label>
+            <input type="text" id="custom-input" name="custom-input" placeholder="Enter any other information here...">
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('cropPredictionForm');
+            const state = document.getElementById('state').value;
+            const district = document.getElementById('district').value;
+            const season = document.getElementById('season').value;
+            const crop = document.getElementById('crop').value;
+            const customInput = document.getElementById('custom-input').value;
+
+            // You can now send this data to your backend server for prediction
+            alert("Form Submitted!\nState: " + state + "\nDistrict: " + district + "\nSeason: " + season + "\nCrop: " + crop + "\nCustom Input: " + customInput);
+            
+            // Example: Sending data to a backend API via fetch (you can adapt this to your server)
+            // fetch('/predict', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         state: state,
+            //         district: district,
+            //         season: season,
+            //         crop: crop,
+            //         custom_input: customInput
+            //     })
+            // }).then(response => response.json())
+            //   .then(data => console.log(data));
+        }
+    </script>
+    
+</body>
+</html>
